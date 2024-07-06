@@ -1,0 +1,115 @@
+# Alias Group List
+alias aliasfunction='echo -e " \n\
+color(F) \n\
+exa \n\
+etc \n\
+exa \n\
+find(F) \n\
+font \n\
+mirror \n\
+package(pkg) \n\
+rc(_rc) \n\
+repo & mirror(update)
+weather \n\
+"'
+
+# ETC
+alias ls='ls --color=auto'
+alias mv='mv -i'
+alias rm='rm -i'
+alias ..='cd ..'
+alias sudo='sudo '
+alias aliasetc='echo -e " \n\
+ls=ls --color=auto \n\
+mv=mv -i \n\
+rm=rm -i \n\
+..=cd .. \n\
+sudo=sudo[] \n\
+"'
+
+# Exa
+alias ls='echo eza --icons | colout "(\w|\W)" rainbow  && eza --icons'
+alias lsal='echo eza --icons --long --all | colout "(\w|\W)" rainbow && eza --icons --long --all'
+alias lsl='echo eza --icons -lbF --git | colout "(\w|\W)" rainbow && eza --icons -lbF --git'
+alias lsll='echo eza --icons -lbGF --git | colout "(\w|\W)" rainbow && eza --icons -lbGF --git'
+alias lsllm='echo eza --icons -lbGF --git --sort=modified | colout "(\w|\W)" rainbow && eza --icons -lbGF --git --sort=modified'
+alias lslS='echo eza --icons -1 | colout "(\w|\W)" rainbow && eza --icons -1'
+alias lslt='echo eza --icons --tree --level=2 | colout "(\w|\W)" rainbow && eza --icons --tree --level=2'
+alias aliasexa='echo -e "ls=eza --icons \n\
+lsal=eza --icons --long --all \n\
+lsl=eza --icons -lbF --git \n\
+lsll=eza --icons -lbGF --git \n\
+lsllm=eza --icons -lbGF --git --sort=modified \n\
+lslS=eza --icons -1 \n\
+lslt=eza --icons --tree --level=2"'
+
+
+# Font
+alias fontlist='fc-list'
+alias fontlistkr='fc-list :lang=ko'
+alias fontsearch='fc-list | grep '"$*"
+alias fontcache='fc-cache -f -v'
+alias fontdir='echo /usr/share/fonts/'
+alias aliasfont='echo -e "사용가능한 폰트확인 - alias: fontlist, command: fc-list \n\
+시스템에 있는 설치된 폰트캐쉬 - alias: fontcache, command: fc-cache -f -v \n\
+한글폰트확인 - alias: fontlistkr, command: fc-list :langko \n\
+폰트위치 - alias: fontdir \n\
+폰트검색 - alias: fontsearch"'
+
+# Repo & Mirror
+#repo update
+alias esync1='sudo emerge --sync'
+alias esync2='sudo emaint sync -a'
+#package update all
+alias eupdate='sudo emerge --update @world'
+alias aliasupdate='echo -e "package repo update : esync1 : sudo emerge --sync \n\
+package repo update : esync2 : sudo emaint sync -a \n\
+package update all : eupdate : sudo emerge --update @world \n\
+"'
+
+# Mirrorselect
+alias mirror='echo -e "sudo mirrorselect -s3 -b10 -D" && sudo mirrorselect -s3 -b10 -D'
+alias aliasmirror='echo -e "mirror management : mirrorselect(sudo) \n\
+no option : source mirror
+-i : tui \n\
+-r : rsync mirror(metadata mirror) \n\
+-s : fastest server : -s3(three fastest mirrors), -s3 -b10 -D (by downloading 100k) \n\
+(reference) htps://wiki.gentoo.org/wiki/Mirrorselect \n\
+mirror : sudo mirrorselect -s3 -b10 -D \n\
+"'
+
+# Package
+#package install
+alias einstall='sudo emerge --ask'
+#package unmasking
+alias unmaskpkg='sudo touch /etc/portage/package.accept_keywords/$1 && sudo emerge --autounmask-write --autounmask $2'
+#package search 
+alias esearch='sudo emerge -s'
+#package remove
+alias eremove='sudo emerge -C'
+alias aliaspkg='echo -e "pacakge install --ask : einstall : sudo emerge --ask \n\
+package unmasking : unmaskpkg : sudo touch /etc/portage/package.accept_keywords/ \$1 && emerge --automask-write --autounmask \$2 \n\
+package search : esearch : sudo emerge -s \n\
+package remove : eremove : sudo emerge -C \n\
+list emerge package installed : emerge -pv \n\
+list cargo package installed : cargo install --list \n\
+list pipx package installed : pipx list \n\
+"'
+
+# Rc
+alias zshrc='vim ~/.zshrc'
+alias vimrc='vim ~/.vimrc'
+alias aliasrc='vim ~/.aliasrc'
+alias functionrc='vim ~/.functionrc'
+alias configrc='vim ~/.configrc'
+alias alias_rc='echo "aliasrc,configrc,functionrc,vimrc,zshrc \n"'
+
+# Weatehr
+alias weather1="curl 'ko.wttr.in/서울?format=%l:+%m+%c+바람:%w+기온:%t+습도:%h\n'"
+alias weather2="curl ko.wttr.in/서울"
+alias weather3="curl 'v2d.wttr.in/Seoul'"
+alias aliasweather='echo -e " \n\
+weather1=curl ko.wttr.in/서울?format=%l:+%m+%c+바람:%w+기온:%t+습도:%h \n\
+weather2=curl ko.wttr.in/서울
+weather3 = curl v2d.wttr.in/Seoul \n\
+"'
