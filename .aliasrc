@@ -62,9 +62,18 @@ alias esync1='sudo emerge --sync'
 alias esync2='sudo emaint sync -a'
 #package update all
 alias eupdate='sudo emerge --update @world'
+alias eupdatedeep='sudo emerge --ask --verbose --update --deep --newuse @world' 
+
 alias aliasupdate='echo -e "package repo update : esync1 : sudo emerge --sync \n\
 package repo update : esync2 : sudo emaint sync -a \n\
 package update all : eupdate : sudo emerge --update @world \n\
+package update deep all : eupdatedeep : sudo emerge --ask --verbose --update --deep --newuse(= -avuDN) @world \n\
+emerge options: \n\
+--noreplace <pkg> : <pkg>가 이미 설치되어 있으면 업데이트제외 \n\
+--newuse : USE 플래그가 변경되어 패키지의 컴파일 옵션이 바뀌었을 때, 해당 패키지를 새로 컴파일하고 설치 \n\
+--deep : 간접적인 의존성까지 검사하여 필요한 모든 패키지를 업데이트 \n\
+--pretend : 미리 가상으로 실행 \n\
+--autounmask-write : mask된 패키지 설치 (실행이후: etc-update : 시스템설정파일 업데이트, 설정파일변화가 있을시 적절한 조치) \n\
 "'
 
 # Mirrorselect
@@ -111,7 +120,7 @@ weather2 : nationwide \n\
 weather3 : time-summary \n\
 weahter4 : time-chart \n\
 "'
-alias weather1="curl 'ko.wttr.in/서울?format=%l:+%m+%c+바람:%w+기온:%t+습도:%h\n'"
+alias weather1="curl 'ko.wttr.in/서울?format=%l:+%m+%c+바람:%w+기온:%t+습도:%h+체감온도:%f\n'"
 alias weather2="curl -s 'ko.wttr.in/{서울,인천,춘천,강릉,청주,대전,전주,광주,대구,울산,부산,제주}?format=%l:+%c+바람:%w+기온:%t+습도:%h+체감온도:%f\n'"
 alias weather3="curl ko.wttr.in/서울"
 alias weather4="curl 'v2d.wttr.in/Seoul'"
