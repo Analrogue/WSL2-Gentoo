@@ -57,8 +57,8 @@ cd ~/.dotfiles/.github/WSL2-Gentoo/
 }
 
 gitpush() {
-echo 'pushd ~/.dotfiles/.github/WSL2-Gentoo/'
-pushd ~/.dotfiles/.github/WSL2-Gentoo/
+echo 'cd ~/.dotfiles/.github/WSL2-Gentoo/'
+cd ~/.dotfiles/.github/WSL2-Gentoo/
 echo '>> git add .'
 git add .
 echo -e "\n"'>> git commit -m '\''gentoo basic configuration file'\'
@@ -67,7 +67,7 @@ echo -e "\n"'>> git push'
 git push
 echo -e "\n"'>> git status'
 git status
-pushd
+cd -
 }
 
 gitremove() {
