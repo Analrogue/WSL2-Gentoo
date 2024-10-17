@@ -99,7 +99,8 @@ alias eremove='sudo emerge -C'
 alias aliaspkg='echo -e "pacakge install --ask : einstall : sudo emerge --ask \n\
 package unmasking : unmaskpkg : sudo touch /etc/portage/package.accept_keywords/ \$1 && emerge --automask-write --autounmask \$2 \n\
 package search : esearch : sudo emerge -s \n\
-package remove : eremove : sudo emerge -C \n\
+package remove simple : eremove : sudo emerge -C \n\
+pacakage remove deep : edepclean : sudo emerge --depclean \n\
 list emerge package installed : emerge -pv \n\
 list cargo package installed : cargo install --list \n\
 list pipx package installed : pipx list \n\
