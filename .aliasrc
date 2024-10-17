@@ -96,11 +96,16 @@ alias unmaskpkg='sudo touch /etc/portage/package.accept_keywords/$1 && sudo emer
 alias esearch='sudo emerge -s'
 #package remove
 alias eremove='sudo emerge -C'
+#package remove including dependence
+alias edepclean='sudo emerge --depclean'
+
 alias aliaspkg='echo -e "pacakge install --ask : einstall : sudo emerge --ask \n\
-package unmasking : unmaskpkg : sudo touch /etc/portage/package.accept_keywords/ \$1 && emerge --automask-write --autounmask \$2 \n\
-package search : esearch : sudo emerge -s \n\
-package remove simple : eremove : sudo emerge -C \n\
-pacakage remove deep : edepclean : sudo emerge --depclean \n\
+unmasking : unmaskpkg : sudo touch /etc/portage/package.accept_keywords/ \$1 && emerge --automask-write --autounmask \$2 \n\
+remote search : esearch : sudo emerge -s \n\
+local/remote all search : [I] - installed/* - uninstalled : eix <pkg> \n\
+installed search : equery list <pkg> \n\
+remove quick : eremove : sudo emerge -C \n\
+remove including dependancy  : edepclean : sudo emerge --depclean \n\
 list emerge package installed : emerge -pv \n\
 list cargo package installed : cargo install --list \n\
 list pipx package installed : pipx list \n\
