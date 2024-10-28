@@ -109,6 +109,8 @@ remove including dependancy  : edepclean : sudo emerge --depclean \n\
 list emerge package installed : emerge -pv \n\
 list cargo package installed : cargo install --list \n\
 list pipx package installed : pipx list \n\
+source cache clean : eclean-dist \n\
+binary cache clean : eclean-pkg \n\
 "'
 
 # Rc
